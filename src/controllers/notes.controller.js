@@ -26,6 +26,25 @@ const getallNotesControlller = async (req, res) => {
   }
 };
 
+const updateNotesController = async (req, res) => {
+  try {
+    let notesId = req.params.id;
+    let body = req.body;
+
+    // in this we update the exitence notes and give the current answer using(new:true) which help me for updating in right time.
+
+    let updatenotes = await notesModel.findByIdAndUpdate(notesId, body, {
+      new: true,
+    });
+    return res.status(201).json({
+      message: "notes updated successfull",
+      data: updatenotes,
+    });
+  } catch (error) {
+    console.log("erorr from the update", error);
+  }
+};
+
 const deletenotesController = async (req, res) => {
   try {
     let notesId = req.params.id;
@@ -39,4 +58,9 @@ const deletenotesController = async (req, res) => {
   }
 };
 
-module.exports = { createNotesController, getallNotesControlller,deletenotesController };
+module.exports = {
+  createNotesController,
+  getallNotesControlller,
+  updateNotesController,
+  deletenotesController,
+};
