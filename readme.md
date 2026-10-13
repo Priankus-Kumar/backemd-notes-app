@@ -22,3 +22,12 @@ models
 
 app.js
   in this there is all connection of code for the backend controller,model,routes
+
+
+iske andar humne simple method of mongoose use kari hai CRUD operation ke liye 
+find--> saraa data milne
+finbyId---->data milna or single update karna
+findByIdAndDelete--->data delete karna
+
+yeh sab aaram se kar sakte hai 
+iss project mai yehi hai
